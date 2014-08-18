@@ -1,0 +1,15 @@
+# Proper MIME type for JavaScript
+AddType application/javascript         js
+
+# Caching for JavaScript and Images
+<IfModule mod_expires.c>
+  ExpiresActive on
+  
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/png                 "access plus 0 seconds"
+
+  <IfModule mod_headers.c>
+    Header append Cache-Control "public"
+  </IfModule>
+
+</IfModule>
